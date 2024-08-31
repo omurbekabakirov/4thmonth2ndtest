@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{%block content%}
+<from style="padding-left: 10px" action="" method="get">
+   {{search_form.as_p}}
+   <button class="btn btn-primary" type="submit">Search</button>
+</from>
+{% for task in tasks %}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{task.title}}</h5>
+    <p class="card-text">{{task.description}}</p>
+    <a href="" class="btn btn-primary">Go to task</a>
+  </div>
+</div>
+
+{% endfor %}
+{% for page in max_pages %}
+<a class="btn btn-primary" href="/tasks/?page=={{page}}">{{page}}</a>
+{% endfor %}
+{% endblock %}
